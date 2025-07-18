@@ -1,6 +1,7 @@
+
 # Minimal API DIO
 
-API minimalista para gerenciamento de administradores e veículos, desenvolvida em .NET 6/7, utilizando Entity Framework Core, autenticação JWT, roles (Adm, Editor), validação, paginação, CORS e documentação Swagger.
+API minimalista para gerenciamento de administradores e veículos, desenvolvida em .NET 6/7. Utiliza Entity Framework Core, autenticação JWT, controle de perfis (Adm, Editor), validação, paginação, CORS e documentação Swagger.
 
 ## Funcionalidades
 
@@ -17,7 +18,6 @@ API minimalista para gerenciamento de administradores e veículos, desenvolvida 
 - `Api/`: Projeto principal da API
   - `Dominio/`: Entidades, DTOs, Enuns, Interfaces, ModelViews, Serviços
   - `Infraestrutura/Db/`: DbContext e configuração do banco
-  - `Migrations/`: Migrações do banco de dados
   - `Program.cs` e `Startup.cs`: Configuração da aplicação e endpoints
 - `Test/`: Projeto de testes automatizados (MSTest, Mocks, Helpers)
 
@@ -49,19 +49,21 @@ API minimalista para gerenciamento de administradores e veículos, desenvolvida 
 - `DELETE /veiculos/{id}`  
   Remove veículo (requer perfil Adm).
 
+
 ## Banco de Dados
 
-- MySQL
+- SQL Server
 - Tabelas: `Administradores`, `Veiculos`
 - Migrations e seed incluídos
 
 ## Como rodar
 
-1. Instale o .NET 6/7 SDK e MySQL.
+
+1. Instale o .NET 6/7 SDK e SQL Server.
 2. Configure a string de conexão em `Api/appsettings.json`:
    ```json
    "ConnectionStrings": {
-     "MySql": "Server=localhost;Database=minimal_api;Uid=root;Pwd=root;"
+     "DefaultConnection": "Server=localhost;Database=minimal_api;User Id=sa;Password=SuaSenhaSegura;TrustServerCertificate=True;"
    }
    ```
 3. Execute as migrações:
